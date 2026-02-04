@@ -16,3 +16,56 @@ phoneButton.onclick = () => {
         phone_result.style.color = "red"
     }
 }
+
+
+//TAB SLIDER
+
+const tabContentBlock = document.querySelectorAll(".tab_content_block")
+const tabContentItems = document.querySelectorAll(".tab_content_item")
+const tabContentItemsParent = document.querySelector(".tab_content_items")
+
+
+const Hide = () => {
+    tabContentBlock.forEach((block) => {
+        block.style.display = "none"
+    })
+    tabContentItems.forEach((button) => {
+        button.classList.remove("tab_content_item_active")
+    })
+}
+
+
+const show = (i = 0) => {
+    tabContentBlock[i].style.display = "block"
+    tabContentItems[i].classList.add("tab_content_item_active")
+}
+
+Hide()
+show()
+
+tabContentItemsParent.onclick = (event) => {
+    if (event.target.tagName.toLowerCase() === "button") {
+        tabContentItems.forEach((button, index) => {
+            if (button === event.target)
+         {
+            Hide()
+            show(index);           
+        }  
+        })
+    }
+}
+
+
+
+const Slider = (i = 0) => {
+    setInterval (() => {
+        i++
+        if (i >= tabContentItems.length) {
+            i = 0
+        }
+        Hide()
+        show(i);
+    },10000 )
+}
+
+Slider()

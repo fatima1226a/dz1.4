@@ -58,7 +58,7 @@ move()
 
 
 
-//TIMER
+//СЕКУНДОМЕР
 
 const seconds = document.querySelector("#seconds")
 const startbtn = document.querySelector("#start")
@@ -78,6 +78,7 @@ startbtn.onclick = () => {
     }
 }
 
+
 stopbtn.onclick = () => {
     clearInterval(interval); 
     interval = null
@@ -85,7 +86,8 @@ stopbtn.onclick = () => {
 
 resetbtn.onclick = () => {
     clearInterval(interval);
-    interval = null;
+    interval = null
     sec = 0
     seconds.innerText = 0;
 }
+
