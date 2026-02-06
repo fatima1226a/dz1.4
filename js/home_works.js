@@ -167,9 +167,9 @@ const loadAnyCharacter = () => {
                 </div>
                 <h3>${AnyCharacterData.name}</h3>
                 <ul class="stats">
-                    <li>${AnyCharacterData.age}</li>
-                    <li>${AnyCharacterData.height}</li>
-                    <li>${AnyCharacterData.weight}</li>
+                    <li><i>age:</i>${AnyCharacterData.age}</li>
+                    <li><i>height:</i>${AnyCharacterData.height}</li>
+                    <li><i>weight:</i>${AnyCharacterData.weight}</li>
                 </ul>
                 <span class="status">${AnyCharacterData.status}</span>
                     <ul>${personalityHTML}</ul>
