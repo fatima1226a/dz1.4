@@ -216,6 +216,11 @@
     text-align: center;
 }
 
+.character-card span, .character-card p {
+    color: #fff;
+}
+
+
 .character-photo {
     width: 100%;
     height: 250px;
@@ -227,4 +232,86 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+
+.any-character-card {
+    border: 2px solid var(--orange);
+    border-radius: 10px;
+    background: #1a1a1a;
+    color: #fff;
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 20px auto 0; 
+    align-items: center;
+}
+
+.any-character-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 165, 0, 0.5);
+}
+
+.any-character-photos {
+    display: flex;
+    gap: 5px;
+    overflow-x: auto;
+    
+}
+
+.any-character-photos img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    flex-shrink: 0;
+    border: 2px solid var(--orange);
+    box-sizing: border-box;
+}
+
+.any-character-card h3 {
+    font-size: 1.3rem;
+    margin: 5px 0;
+    color: var(--orange);
+}
+
+.any-character-card .status {
+    font-style: italic;
+    color: #ccc;
+}
+
+.any-character-card .stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+.any-character-card .bio {
+    font-size: 0.9rem;
+    line-height: 1.3;
+    color: #ddd;
+    text-align: left;
+}
+
+.any-character-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+}
+
+.any-character-card ul li {
+    background: var(--orange);
+    color: #000;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.8rem;
 }

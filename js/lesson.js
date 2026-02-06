@@ -25,7 +25,7 @@ const tabContentItems = document.querySelectorAll(".tab_content_item")
 const tabContentItemsParent = document.querySelector(".tab_content_items")
 
 
-const Hide = () => {
+const hide = () => {
     tabContentBlock.forEach((block) => {
         block.style.display = "none"
     })
@@ -40,7 +40,7 @@ const show = (i = 0) => {
     tabContentItems[i].classList.add("tab_content_item_active")
 }
 
-Hide()
+hide()
 show()
 
 tabContentItemsParent.onclick = (event) => {
@@ -48,7 +48,7 @@ tabContentItemsParent.onclick = (event) => {
         tabContentItems.forEach((button, index) => {
             if (button === event.target)
          {
-            Hide()
+            hide()
             show(index);           
         }  
         })
@@ -57,15 +57,18 @@ tabContentItemsParent.onclick = (event) => {
 
 
 
-const Slider = (i = 0) => {
+const slider = (i = 0) => {
     setInterval (() => {
         i++
         if (i >= tabContentItems.length) {
             i = 0
         }
-        Hide()
+        hide()
         show(i);
     },10000 )
 }
 
-Slider()
+slider()
+
+
+

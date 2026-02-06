@@ -91,3 +91,85 @@ resetbtn.onclick = () => {
     seconds.innerText = 0;
 }
 
+
+// CHARACTERS
+
+const characterList = document.querySelector(".characters-list")
+
+const loadCharacters = () => {
+    const xhr = new XMLHttpRequest()
+    xhr.open("GET", "../data/characters.json")
+    xhr.setRequestHeader("Content-type", "application/json")
+    xhr.send()
+    xhr.onload = () => {
+        const charactersData = JSON.parse(xhr.response) 
+        console.log(charactersData);
+        
+        charactersData.forEach((charactersCard) => {
+            const div = document.createElement("div")
+            div.setAttribute("class", "character-card")
+            div.innerHTML = `
+                <div class="character-photo">
+                    <img src="${charactersCard.photo}" alt="${charactersCard.name}">
+                </div>
+                <h3>${charactersCard.name}</h3>
+                <span>${charactersCard.age}</span>
+                <p>${charactersCard.bio}</p>
+            `
+
+            characterList.appendChild(div)
+        }) 
+ }
+}
+
+loadCharacters()
+
+
+const loadAnyCharacter = () => {
+    const xhr = new XMLHttpRequest() 
+    xhr.open("GET", "../data/any.json") 
+    xhr.setRequestHeader("Content-type", "application/json") 
+    xhr.send() 
+    xhr.onload = () => {
+        const AnyCharacterData = JSON.parse(xhr.response)
+        console.log(AnyCharacterData);
+    
+        const div = document.createElement("div")
+        div.setAttribute("class", "any-character-card")
+            div.innerHTML = `
+                <div class="any-character-photos">
+                    <img src="${AnyCharacterData.photos[0]}" alt="${AnyCharacterData.name}">
+                    <img src="${AnyCharacterData.photos[1]}" alt="${AnyCharacterData.name}">
+                    <img src="${AnyCharacterData.photos[2]}" alt="${AnyCharacterData.name}">
+                </div>
+                <h3>${AnyCharacterData.name}</h3>
+                <ul class="stats">
+                    <li>${AnyCharacterData.age}</li>
+                    <li>${AnyCharacterData.height}</li>
+                    <li>${AnyCharacterData.weight}</li>
+                </ul>
+                <span class="status">${AnyCharacterData.status}</span>
+                <ul>
+                    <li>${AnyCharacterData.personality[0]}</li>
+                    <li>${AnyCharacterData.personality[1]}</li>
+                    <li>${AnyCharacterData.personality[2]}</li>
+                    <li>${AnyCharacterData.personality[3]}</li>
+                    <li>${AnyCharacterData.personality[4]}</li>
+                </ul>
+                <p class="bio">${AnyCharacterData.bio}</p>
+                 <ul>
+                    <li>${AnyCharacterData.colors[0]}</li>
+                    <li>${AnyCharacterData.colors[1]}</li>
+                </ul>
+                 <ul>
+                    <li>${AnyCharacterData.favoriteThings[0]}</li>
+                    <li>${AnyCharacterData.favoriteThings[1]}</li>
+                    <li>${AnyCharacterData.favoriteThings[2]}</li>
+                </ul>
+            `
+            characterList.appendChild(div)
+    }
+}
+
+
+loadAnyCharacter()
