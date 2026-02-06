@@ -136,11 +136,34 @@ const loadAnyCharacter = () => {
     
         const div = document.createElement("div")
         div.setAttribute("class", "any-character-card")
+
+            let photosHTML = "";
+            AnyCharacterData.photos.forEach(photo => {
+                photosHTML += `<img src="${photo}" 
+                alt="${AnyCharacterData.name}">`;
+            });
+
+            let personalityHTML = "";
+            AnyCharacterData.personality.forEach(p => 
+            {
+                personalityHTML += `<li>${p}</li>`;
+            });
+
+            let colorsHTML = "";
+            AnyCharacterData.colors.forEach(c => 
+            {
+                colorsHTML += `<li>${c}</li>`;
+            });
+
+            let favoriteHTML = "";
+            AnyCharacterData.favoriteThings.forEach(f => 
+            {
+                favoriteHTML += `<li>${f}</li>`;
+            });
+
             div.innerHTML = `
                 <div class="any-character-photos">
-                    <img src="${AnyCharacterData.photos[0]}" alt="${AnyCharacterData.name}">
-                    <img src="${AnyCharacterData.photos[1]}" alt="${AnyCharacterData.name}">
-                    <img src="${AnyCharacterData.photos[2]}" alt="${AnyCharacterData.name}">
+                    ${photosHTML}
                 </div>
                 <h3>${AnyCharacterData.name}</h3>
                 <ul class="stats">
@@ -149,23 +172,10 @@ const loadAnyCharacter = () => {
                     <li>${AnyCharacterData.weight}</li>
                 </ul>
                 <span class="status">${AnyCharacterData.status}</span>
-                <ul>
-                    <li>${AnyCharacterData.personality[0]}</li>
-                    <li>${AnyCharacterData.personality[1]}</li>
-                    <li>${AnyCharacterData.personality[2]}</li>
-                    <li>${AnyCharacterData.personality[3]}</li>
-                    <li>${AnyCharacterData.personality[4]}</li>
-                </ul>
+                    <ul>${personalityHTML}</ul>
                 <p class="bio">${AnyCharacterData.bio}</p>
-                 <ul>
-                    <li>${AnyCharacterData.colors[0]}</li>
-                    <li>${AnyCharacterData.colors[1]}</li>
-                </ul>
-                 <ul>
-                    <li>${AnyCharacterData.favoriteThings[0]}</li>
-                    <li>${AnyCharacterData.favoriteThings[1]}</li>
-                    <li>${AnyCharacterData.favoriteThings[2]}</li>
-                </ul>
+                    <ul>${colorsHTML}</ul>
+                    <ul>${favoriteHTML}</ul>
             `
             characterList.appendChild(div)
     }
