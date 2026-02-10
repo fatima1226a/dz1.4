@@ -71,9 +71,7 @@ const slider = (i = 0) => {
 slider()
 
 
-
-<<<<<<< HEAD
-=======
+ 
 // CONVERTER
 
 const somInput = document.querySelector("#som")
@@ -125,4 +123,3 @@ eurInput.oninput = () => {
     converter(eurInput, somInput, usdInput)
 }
 
->>>>>>> b18383a (dz5)
