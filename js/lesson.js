@@ -72,3 +72,57 @@ slider()
 
 
 
+<<<<<<< HEAD
+=======
+// CONVERTER
+
+const somInput = document.querySelector("#som")
+const usdInput = document.querySelector("#usd")
+const eurInput = document.querySelector("#eur")
+
+const converter = (element, target1, target2) => {
+    element.oninput = () => {
+        const xhr = new XMLHttpRequest()
+        xhr.open("GET", "../data/converter.json")
+        xhr.setRequestHeader("Content-type", "application/json")
+        xhr.send()
+
+        xhr.onload = () => {
+            const data = JSON.parse(xhr.response)
+            if (element.id === "som") {
+                target1.value = (element.value / data.usd).toFixed(2)
+                target2.value = (element.value / data.eur).toFixed(2)
+            }
+
+            if (element.id === "usd") {
+                target1.value = (element.value * data.usd).toFixed(2)
+                target2.value = ((element.value * data.usd)/data.eur).toFixed(2)
+                
+            }
+
+            if (element.id === "eur") {
+                target1.value = (element.value * data.eur).toFixed(2)
+                target2.value = ((element.value * data.eur)/data.usd).toFixed(2)
+            }
+            
+            if (element.value === "") {
+                target1.value = ""
+                target2.value = ""
+            }
+         }
+    }
+}
+
+somInput.oninput = () => {
+    converter(somInput, usdInput, eurInput)
+}
+
+usdInput.oninput = () => {
+    converter(usdInput, somInput, eurInput)
+}
+
+eurInput.oninput = () => {
+    converter(eurInput, somInput, usdInput)
+}
+
+>>>>>>> b18383a (dz5)
